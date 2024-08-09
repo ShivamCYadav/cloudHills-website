@@ -124,3 +124,71 @@
 
 
 })(window.jQuery);
+
+function setActiveMenu(id) {
+	// Get all menu items
+	var menuItems = document.querySelectorAll('.nav a');
+
+	// Remove 'active' class from all menu items
+	menuItems.forEach(function (item) {
+	  item.classList.remove('active');
+	});
+
+	// Add 'active' class to the clicked menu item
+	var activeItem = document.getElementById(id);
+	if (activeItem) {
+	  activeItem.classList.add('active');
+	}
+  }
+
+  document.querySelectorAll('.nav a').forEach(function (link) {
+	link.addEventListener('click', function () {
+	  setActiveMenu(this.id);
+	});
+  });
+
+  // Function to show the pop-up
+  function showPopup() {
+	document.getElementById('form-popup').style.display = 'block';
+  }
+
+  // Automatically show the pop-up 3 seconds after the page loads
+  window.addEventListener('load', function () {
+	setTimeout(showPopup, 3000);
+  });
+
+  // Select all elements with the class 'schedule-visit-btn'
+  var buttons = document.querySelectorAll('.schedule-visit-btn');
+
+  // Loop through each button and add an event listener
+  buttons.forEach(function (button) {
+	button.addEventListener('click', function (event) {
+	  event.preventDefault();
+	  document.getElementById('form-popup').style.display = 'block';
+	});
+  });
+  // Close the form pop-up when the close button is clicked
+  document.getElementById('close-popup').addEventListener('click', function () {
+	document.getElementById('form-popup').style.display = 'none';
+  });
+
+  // Submit the form using JavaScript
+  const btn = document.getElementById('form-submit');
+  document.getElementById('contact-form')
+	.addEventListener('submit', function (event) {
+	  event.preventDefault();
+
+	  btn.value = 'Sending...';
+
+	  const serviceID = 'service_20ly6io';
+	  const templateID = 'template_ta3moa9';
+
+	  emailjs.sendForm(serviceID, templateID, this)
+		.then(() => {
+		  btn.value = 'Send Email';
+		  alert('Sent!');
+		}, (err) => {
+		  btn.value = 'Send Email';
+		  alert(JSON.stringify(err));
+		});
+	});
