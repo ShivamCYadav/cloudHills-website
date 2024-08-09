@@ -1,57 +1,105 @@
 .nav a {
-    cursor: pointer;
-  }
-  
-  /* Pop-up form container */
-  .form-popup {
-    display: none;
-    position: fixed;
-    z-index: 9;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Pop-up form content */
+  cursor: pointer;
+}
+
+/* Pop-up form container */
+.form-popup {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Pop-up form content */
+.form-container {
+  margin: 10% auto;
+  padding: 2rem;
+  background-color: #deecf7;
+  border-radius: 1.25rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Input fields */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0 1rem;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Button */
+.orange-button {
+  background-color: rgb(76, 201, 251);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
   .form-container {
-    margin: 15% auto;
-    padding: 20px;
-    background-color: #deecf7;
-    border-radius: 20px;
-    width: 400px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
+    margin: 15% auto; /* Adjust margin for centering on smaller screens */
+    padding: 1.5rem; /* Reduce padding for space constraints */
   }
-  
-  /* Close button */
+
   .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
+    font-size: 1.25rem; /* Reduce font size for smaller screens */
+    top: 0.75rem;
+    right: 1rem;
   }
-  
-  /* Input fields */
+
   input[type="text"],
   textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 20px;
-    background: #f1f1f1;
-    border: none;
-    border-radius: 15px;
+    padding: 0.5rem; /* Adjust padding for smaller input fields */
+    margin: 0.5rem 0 0.75rem; /* Reduce margin for better spacing */
   }
-  
-  /* Button */
+
   .orange-button {
-    background-color: rgb(76, 201, 251);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 20px;
-  }  
+    padding: 0.5rem 1rem; /* Adjust padding for the button */
+  }
+}
+
+/* Additional Media Query for Extra Small Screens */
+@media (max-width: 400px) {
+  .form-container {
+    margin: 20% auto; /* Further adjustment for very small screens */
+  }
+
+  .close-btn {
+    font-size: 1.1rem; /* Further reduction for very small screens */
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 0.4rem; /* Further adjustment for very small screens */
+  }
+
+  .orange-button {
+    padding: 0.4rem 0.8rem; /* Further adjustment for very small screens */
+  }
+}
